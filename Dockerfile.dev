@@ -1,0 +1,32 @@
+# Use the official Node.js image based on Node 20
+FROM node:20-bookworm
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Enable pnpm (which is included in Node.js via Corepack)
+RUN corepack enable pnpm
+
+# --- Dependency Caching ---
+# Copy only the files needed to install dependencies
+COPY package.json pnpm-lock.yaml ./
+
+# Copy the package.json for each app
+COPY apps/docs/package.json ./apps/docs/
+COPY apps/00-0_Resume_Forge/package.json ./apps/00-0_Resume_Forge/
+COPY apps/01-0_Contract_Proposal_AI/package.json ./apps/01-0_Contract_Proposal_AI/
+
+# Copy the package.json for each package that has one
+COPY packages/eslint-config/package.json ./packages/eslint-config/
+COPY packages/ui/package.json ./packages/ui/
+COPY packages/typescript-config/package.json ./packages/typescript-config/
+
+# Install *all* monorepo dependencies
+RUN pnpm install --frozen-lockfile
+
+# --- Source Code ---
+# Copy the rest of your monorepo source code
+COPY . .
+
+# Expose the Next.js port
+EXPOSE 3000
