@@ -36,3 +36,10 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+# Supabase local dev files
+# IMPORTANT: Do NOT ignore supabase/migrations
+supabase/.branches
+supabase/.temp
+supabase/db/dump.sql
+supabase/volumes/
