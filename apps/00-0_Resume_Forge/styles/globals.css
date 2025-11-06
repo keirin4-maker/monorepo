@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* You can add any other global base styles here */
+body {
+  /* Example global style */
+  font-family: sans-serif;
+  background-color: rgb(4, 253, 16) !important;
+  margin: 10px !important;
+}
