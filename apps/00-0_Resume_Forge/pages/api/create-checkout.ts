@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import * as LemonSqueezy from '@lemonsqueezy/lemonsqueezy.js'
+// Use a 'require' to bypass the ES Module type issue
+const { lemonSqueezy } = require('@lemonsqueezy/lemonsqueezy.js');
 import { createSupabaseServerClient } from '../../lib/supabase/server'
 
 // !!! REPLACE THIS with the Variant ID from your Lemon Squeezy product !!!
@@ -18,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(401).json({ message: 'Unauthorized' })
     }
 
-    const ls = LemonSqueezy.lemonSqueezy(process.env.LEMONSQUEEZY_API_KEY!)
+    const ls = lemonSqueezy(process.env.LEMONSQUEEZY_API_KEY!)
 
     const checkout = await ls.createCheckout({
       store: process.env.LEMONSQUEEZY_STORE_ID!,
