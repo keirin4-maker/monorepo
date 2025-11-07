@@ -43,6 +43,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "@lemonsqueezy/lemonsqueezy.js": "^4.0.0",
     "@supabase/supabase-js": "^2.80.0"
   }
 }
