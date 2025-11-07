@@ -1,7 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { createSupabaseServerClient } from '../../lib/supabase/server'
+
+
 // Use a 'require' to bypass the ES Module type issue
 const { lemonSqueezy } = require('@lemonsqueezy/lemonsqueezy.js');
-import { createSupabaseServerClient } from '../../lib/supabase/server'
+
 
 // !!! REPLACE THIS with the Variant ID from your Lemon Squeezy product !!!
 const YOUR_VARIANT_ID = 12345; 
