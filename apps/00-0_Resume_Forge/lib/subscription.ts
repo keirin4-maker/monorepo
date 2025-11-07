@@ -1,4 +1,4 @@
-import { createSupabaseServerClient } from '@/lib/supabase/server'
+import { createSupabaseServerClient } from './supabase/server'
 import { GetServerSidePropsContext } from 'next'
 
 export async function isUserPro(ctx: GetServerSidePropsContext): Promise<boolean> {
