@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(401).json({ message: 'Unauthorized' })
     }
 
-    const ls = new LemonSqueezy(process.env.LEMONSQUEEZY_API_KEY!)
+    const ls = lemonSqueezy(process.env.LEMONSQUEEZY_API_KEY!)
 
     const checkout = await ls.createCheckout({
       store: process.env.LEMONSQUEEZY_STORE_ID!,
