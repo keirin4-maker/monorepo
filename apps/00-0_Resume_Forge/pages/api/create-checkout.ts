@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { LemonSqueezy } from '@lemonsqueezy/lemonsqueezy.js'
-import { createSupabaseServerClient } from '@/lib/supabase/server'
+import { createSupabaseServerClient } from '../../../lib/supabase/server.ts'
 
 // !!! REPLACE THIS with the Variant ID from your Lemon Squeezy product !!!
 const YOUR_VARIANT_ID = 12345; 

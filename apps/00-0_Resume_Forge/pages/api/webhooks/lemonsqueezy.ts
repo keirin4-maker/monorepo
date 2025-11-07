@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import crypto from 'crypto'
-import { supabaseAdmin } from '@/lib/supabase/admin'
+import { supabaseAdmin } from '../../../../lib/supabase/admin.ts'
 
 // Helper to get the raw body for signature verification
 const getRawBody = (req: NextApiRequest): Promise<Buffer> => {
